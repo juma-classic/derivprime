@@ -1,0 +1,13 @@
+/* Money component styles */
+.money {
+    font-family: monospace;
+    font-weight: 600;
+}
+
+.money--positive {
+    color: #10b981;
+}
+
+.money--negative {
+    color: #ef4444;
+}

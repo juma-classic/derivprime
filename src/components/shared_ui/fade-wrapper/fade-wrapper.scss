@@ -1,0 +1,20 @@
+/* Fade wrapper component styles */
+.fade-wrapper {
+    transition: opacity 0.3s ease;
+}
+
+.fade-wrapper.fade-enter {
+    opacity: 0;
+}
+
+.fade-wrapper.fade-enter-active {
+    opacity: 1;
+}
+
+.fade-wrapper.fade-exit {
+    opacity: 1;
+}
+
+.fade-wrapper.fade-exit-active {
+    opacity: 0;
+}

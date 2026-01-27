@@ -1,0 +1,573 @@
+// Modern CEO PAUL Loader
+.modern-loader {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    overflow: hidden;
+
+    .loader-container {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        animation: fade-in-up 1s ease-out;
+    }
+
+    .brand-container {
+        margin-bottom: 3rem;
+        position: relative;
+
+        .brand-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+
+            .ceo {
+                font-size: 4rem;
+                font-weight: 900;
+                background: linear-gradient(135deg, #ffd700 0%, #ff6b35 50%, #ffd700 100%);
+                background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-shadow: 0 0 30px rgb(255 215 0 / 50%);
+                animation: glow-pulse 2s ease-in-out infinite;
+                letter-spacing: 0.2em;
+                font-family:
+                    'Inter',
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    sans-serif;
+            }
+
+            .paul {
+                font-size: 4rem;
+                font-weight: 900;
+                background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd700 100%);
+                background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-shadow: 0 0 30px rgb(255 107 53 / 50%);
+                animation: glow-pulse 2s ease-in-out infinite 0.5s;
+                letter-spacing: 0.2em;
+                font-family:
+                    'Inter',
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    sans-serif;
+            }
+        }
+
+        .brand-subtitle {
+            font-size: 1.2rem;
+            color: rgb(255 255 255 / 70%);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            animation: fade-in 1.5s ease-out 0.5s both;
+        }
+
+        // Decorative elements
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            top: 50%;
+            animation: expand-line 2s ease-out 1s both;
+        }
+
+        &:before {
+            left: -120px;
+        }
+
+        &:after {
+            right: -120px;
+        }
+    }
+
+    .spinner-container {
+        margin-bottom: 2rem;
+        position: relative;
+
+        .spinner {
+            position: relative;
+            width: 80px;
+            height: 80px;
+
+            .spinner-ring {
+                position: absolute;
+                border: 3px solid transparent;
+                border-radius: 50%;
+                animation: spin 2s linear infinite;
+
+                &:nth-child(1) {
+                    width: 80px;
+                    height: 80px;
+                    border-top-color: #ffd700;
+                    border-right-color: #ffd700;
+                    animation-duration: 2s;
+                }
+
+                &:nth-child(2) {
+                    width: 60px;
+                    height: 60px;
+                    top: 10px;
+                    left: 10px;
+                    border-top-color: #ff6b35;
+                    border-left-color: #ff6b35;
+                    animation-duration: 1.5s;
+                    animation-direction: reverse;
+                }
+
+                &:nth-child(3) {
+                    width: 40px;
+                    height: 40px;
+                    top: 20px;
+                    left: 20px;
+                    border-top-color: #f7931e;
+                    border-bottom-color: #f7931e;
+                    animation-duration: 1s;
+                }
+            }
+        }
+    }
+
+    .load-message {
+        font-size: 1.1rem;
+        color: rgb(255 255 255 / 80%);
+        font-weight: 400;
+        margin-bottom: 2rem;
+        animation: fade-in 2s ease-out 1s both;
+        letter-spacing: 0.05em;
+    }
+
+    .progress-container {
+        width: 300px;
+        margin-bottom: 1rem;
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgb(255 255 255 / 10%);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+
+            .progress-fill {
+                height: 100%;
+                background: linear-gradient(90deg, #ffd700, #ff6b35, #f7931e);
+                border-radius: 2px;
+                animation: progress-fill 3s ease-in-out infinite;
+                box-shadow: 0 0 10px rgb(255 215 0 / 50%);
+            }
+        }
+    }
+
+    // Background Animation
+    .background-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+
+        .floating-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgb(255 215 0 / 60%);
+            border-radius: 50%;
+            animation: float-up 8s linear infinite;
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: inherit;
+                border-radius: 50%;
+                animation: pulse 2s ease-in-out infinite;
+            }
+
+            // Distribute particles randomly
+            &.particle-1 {
+                left: 5%;
+                animation-delay: 0s;
+                animation-duration: 6s;
+            }
+
+            &.particle-2 {
+                left: 15%;
+                animation-delay: 1s;
+                animation-duration: 7s;
+                background: rgb(255 107 53 / 60%);
+            }
+
+            &.particle-3 {
+                left: 25%;
+                animation-delay: 2s;
+                animation-duration: 8s;
+                background: rgb(247 147 30 / 60%);
+            }
+
+            &.particle-4 {
+                left: 35%;
+                animation-delay: 3s;
+                animation-duration: 9s;
+            }
+
+            &.particle-5 {
+                left: 45%;
+                animation-delay: 4s;
+                animation-duration: 6s;
+                background: rgb(255 107 53 / 60%);
+            }
+
+            &.particle-6 {
+                left: 55%;
+                animation-delay: 5s;
+                animation-duration: 7s;
+                background: rgb(247 147 30 / 60%);
+            }
+
+            &.particle-7 {
+                left: 65%;
+                animation-delay: 6s;
+                animation-duration: 8s;
+            }
+
+            &.particle-8 {
+                left: 75%;
+                animation-delay: 7s;
+                animation-duration: 9s;
+                background: rgb(255 107 53 / 60%);
+            }
+
+            &.particle-9 {
+                left: 85%;
+                animation-delay: 0.5s;
+                animation-duration: 6s;
+                background: rgb(247 147 30 / 60%);
+            }
+
+            &.particle-10 {
+                left: 95%;
+                animation-delay: 1.5s;
+                animation-duration: 7s;
+            }
+
+            &.particle-11 {
+                left: 10%;
+                animation-delay: 2.5s;
+                animation-duration: 8s;
+                background: rgb(255 107 53 / 60%);
+            }
+
+            &.particle-12 {
+                left: 20%;
+                animation-delay: 3.5s;
+                animation-duration: 9s;
+                background: rgb(247 147 30 / 60%);
+            }
+
+            &.particle-13 {
+                left: 30%;
+                animation-delay: 4.5s;
+                animation-duration: 6s;
+            }
+
+            &.particle-14 {
+                left: 40%;
+                animation-delay: 5.5s;
+                animation-duration: 7s;
+                background: rgb(255 107 53 / 60%);
+            }
+
+            &.particle-15 {
+                left: 50%;
+                animation-delay: 6.5s;
+                animation-duration: 8s;
+                background: rgb(247 147 30 / 60%);
+            }
+
+            &.particle-16 {
+                left: 60%;
+                animation-delay: 7.5s;
+                animation-duration: 9s;
+            }
+
+            &.particle-17 {
+                left: 70%;
+                animation-delay: 0.8s;
+                animation-duration: 6s;
+                background: rgb(255 107 53 / 60%);
+            }
+
+            &.particle-18 {
+                left: 80%;
+                animation-delay: 1.8s;
+                animation-duration: 7s;
+                background: rgb(247 147 30 / 60%);
+            }
+
+            &.particle-19 {
+                left: 90%;
+                animation-delay: 2.8s;
+                animation-duration: 8s;
+            }
+
+            &.particle-20 {
+                left: 12%;
+                animation-delay: 3.8s;
+                animation-duration: 9s;
+                background: rgb(255 107 53 / 60%);
+            }
+        }
+    }
+}
+
+// Animations
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes glow-pulse {
+    0%,
+    100% {
+        text-shadow:
+            0 0 20px rgb(255 215 0 / 50%),
+            0 0 40px rgb(255 215 0 / 30%),
+            0 0 60px rgb(255 215 0 / 10%);
+    }
+
+    50% {
+        text-shadow:
+            0 0 30px rgb(255 215 0 / 80%),
+            0 0 60px rgb(255 215 0 / 50%),
+            0 0 90px rgb(255 215 0 / 30%);
+    }
+}
+
+@keyframes expand-line {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 100px;
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes progress-fill {
+    0% {
+        width: 0%;
+        opacity: 0.8;
+    }
+
+    50% {
+        width: 70%;
+        opacity: 1;
+    }
+
+    100% {
+        width: 100%;
+        opacity: 0.8;
+    }
+}
+
+@keyframes float-up {
+    0% {
+        bottom: -10px;
+        opacity: 0;
+        transform: translateX(0) rotate(0deg);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 100vh;
+        opacity: 0;
+        transform: translateX(50px) rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+}
+
+// Responsive Design
+@media (width <= 768px) {
+    .modern-loader {
+        .brand-container {
+            .brand-text {
+                flex-direction: column;
+                gap: 0.5rem;
+
+                .ceo,
+                .paul {
+                    font-size: 3rem;
+                }
+            }
+
+            .brand-subtitle {
+                font-size: 1rem;
+            }
+
+            &:before,
+            &:after {
+                width: 60px;
+            }
+
+            &:before {
+                left: -80px;
+            }
+
+            &:after {
+                right: -80px;
+            }
+        }
+
+        .progress-container {
+            width: 250px;
+        }
+
+        .load-message {
+            font-size: 1rem;
+            padding: 0 2rem;
+        }
+    }
+}
+
+@media (width <= 480px) {
+    .modern-loader {
+        .brand-container {
+            .brand-text {
+                .ceo,
+                .paul {
+                    font-size: 2.5rem;
+                }
+            }
+
+            .brand-subtitle {
+                font-size: 0.9rem;
+            }
+        }
+
+        .spinner-container {
+            .spinner {
+                width: 60px;
+                height: 60px;
+
+                .spinner-ring {
+                    &:nth-child(1) {
+                        width: 60px;
+                        height: 60px;
+                    }
+
+                    &:nth-child(2) {
+                        width: 45px;
+                        height: 45px;
+                        top: 7.5px;
+                        left: 7.5px;
+                    }
+
+                    &:nth-child(3) {
+                        width: 30px;
+                        height: 30px;
+                        top: 15px;
+                        left: 15px;
+                    }
+                }
+            }
+        }
+
+        .progress-container {
+            width: 200px;
+        }
+    }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+    .modern-loader {
+        .brand-text .ceo,
+        .brand-text .paul {
+            animation: none;
+        }
+
+        .spinner-ring {
+            animation: none;
+        }
+
+        .floating-particle {
+            animation: none;
+            opacity: 0.3;
+        }
+
+        .progress-fill {
+            animation: none;
+            width: 60%;
+        }
+    }
+}

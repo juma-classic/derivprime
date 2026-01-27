@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Market Analysis Tool</title>
+        <link rel="stylesheet" href="/ai/ai.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="analysis-container">
+            <!-- Controls at the top -->
+            <div class="top-controls">
+                <div class="control-row">
+                    <div class="control-item">
+                        <label for="symbol-select">Symbol:</label>
+                        <select id="symbol-select">
+                            <option value="R_10">Volatility 10 index</option>
+                            <option value="1HZ10V">Volatility 10 (1s) index</option>
+                            <option value="R_25">Volatility 25 index</option>
+                            <option value="1HZ25V">Volatility 25 (1s) index</option>
+                            <option value="R_50">Volatility 50 index</option>
+                            <option value="1HZ50V">Volatility 50 (1s) index</option>
+                            <option value="R_75">Volatility 75 index</option>
+                            <option value="1HZ75V">Volatility 75 (1s) index</option>
+                            <option value="R_100" selected>Volatility 100 index</option>
+                            <option value="1HZ100V">Volatility 100 (1s) index</option>
+                            <option value="JD10">Jump 10 Index</option>
+                            <option value="JD25">Jump 25 Index</option>
+                            <option value="JD50">Jump 50 Index</option>
+                            <option value="JD100">Jump 100 Index</option>
+                            <option value="RDBEAR">Bear Market Index</option>
+                            <option value="RDBULL">Bull Market Index</option>
+                        </select>
+                    </div>
+                    <div class="control-item">
+                        <label for="tick-count-input">Tick Count:</label>
+                        <input type="number" id="tick-count-input" value="1000" min="1" max="5000" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header with current price -->
+            <div class="price-header">
+                <div class="price-value" id="current-price">Loading...</div>
+                <div class="price-label">TICK ANALYSIS</div>
+                <div class="tick-info">
+                    <span>Last 1000 tick digit distribution</span>
+                    <span class="tick-count" id="tick-count">0/1000</span>
+                    <span class="connection-status" id="connection-status">Connecting...</span>
+                </div>
+            </div>
+
+            <!-- Digit Distribution -->
+            <div class="digit-section">
+                <div class="digit-grid" id="digit-display-container">
+                    <!-- Digits 0-9 will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Analysis Sections -->
+            <div class="analysis-sections">
+                <!-- Even/Odd Analysis -->
+                <div class="analysis-row">
+                    <div class="analysis-label">Even/Odd</div>
+                    <div class="analysis-content">
+                        <div class="progress-section">
+                            <div class="progress-label">Even</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill even-fill" id="even-progress" style="width: 48.5%"></div>
+                            </div>
+                            <div class="progress-value" id="even-value">485</div>
+                            <div class="progress-percent" id="even-percent">(48.5%)</div>
+                        </div>
+                        <div class="recent-indicators" id="recent-even-odd">
+                            <!-- Recent E/O indicators will be populated by JavaScript -->
+                        </div>
+                        <div class="progress-section">
+                            <div class="progress-label">Odd</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill odd-fill" id="odd-progress" style="width: 51.5%"></div>
+                            </div>
+                            <div class="progress-value" id="odd-value">515</div>
+                            <div class="progress-percent" id="odd-percent">(51.5%)</div>
+                        </div>
+                    </div>
+                    <button class="copy-btn">Copy</button>
+                </div>
+
+                <!-- Over/Under Analysis -->
+                <div class="analysis-row">
+                    <div class="analysis-label">Over/Under</div>
+                    <div class="analysis-content">
+                        <div class="progress-section">
+                            <div class="progress-label">Under</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill under-fill" id="under-progress" style="width: 49.2%"></div>
+                            </div>
+                            <div class="progress-value" id="under-value">492</div>
+                            <div class="progress-percent" id="under-percent">(49.2%)</div>
+                        </div>
+                        <div class="equal-section">
+                            <div class="equal-label">Equal</div>
+                            <div class="equal-value" id="equal-value">112</div>
+                            <div class="equal-percent" id="equal-percent">(11.2%)</div>
+                        </div>
+                        <div class="progress-section">
+                            <div class="progress-label">Over</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill over-fill" id="over-progress" style="width: 39.6%"></div>
+                            </div>
+                            <div class="progress-value" id="over-value">396</div>
+                            <div class="progress-percent" id="over-percent">(39.6%)</div>
+                        </div>
+                    </div>
+                    <button class="copy-btn">Copy</button>
+                </div>
+
+                <!-- Matches/Differs Analysis -->
+                <div class="analysis-row">
+                    <div class="analysis-label">Matches/Differs</div>
+                    <div class="analysis-content">
+                        <div class="progress-section">
+                            <div class="progress-label">Matches</div>
+                            <div class="progress-bar">
+                                <div
+                                    class="progress-fill matches-fill"
+                                    id="matches-progress"
+                                    style="width: 11.2%"
+                                ></div>
+                            </div>
+                            <div class="progress-value" id="matches-value">112</div>
+                            <div class="progress-percent" id="matches-percent">(11.2%)</div>
+                        </div>
+                        <div class="progress-section">
+                            <div class="progress-label">Differs</div>
+                            <div class="progress-bar">
+                                <div
+                                    class="progress-fill differs-fill"
+                                    id="differs-progress"
+                                    style="width: 88.8%"
+                                ></div>
+                            </div>
+                            <div class="progress-value" id="differs-value">888</div>
+                            <div class="progress-percent" id="differs-percent">(88.8%)</div>
+                        </div>
+                    </div>
+                    <button class="copy-btn">Copy</button>
+                </div>
+        </div>
+
+        <script src="/ai/ai.js"></script>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+/* Mobile wrapper component styles */
+.mobile-wrapper {
+    display: none;
+}
+
+@media (width <= 768px) {
+    .mobile-wrapper {
+        display: block;
+    }
+}

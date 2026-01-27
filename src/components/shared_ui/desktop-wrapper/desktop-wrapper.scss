@@ -1,0 +1,10 @@
+/* Desktop wrapper component styles */
+.desktop-wrapper {
+    display: block;
+}
+
+@media (width <= 768px) {
+    .desktop-wrapper {
+        display: none;
+    }
+}

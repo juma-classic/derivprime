@@ -1,0 +1,10 @@
+.main-body {
+    flex-grow: 1;
+    min-height: calc(100vh - 4.9rem); // Subtract header height
+    width: 100%;
+    background: var(--general-main-1);
+
+    @media (width <= 768px) {
+        min-height: calc(100vh - 4rem); // Subtract mobile header height
+    }
+}

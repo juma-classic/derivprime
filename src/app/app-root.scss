@@ -1,0 +1,20 @@
+.app-root {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    position: relative;
+    overflow: hidden;
+
+    .load-message {
+        margin-top: 6rem;
+    }
+
+    // Ensure modern loader takes full screen
+    &.modern-loader {
+        margin: 0;
+        padding: 0;
+    }
+}

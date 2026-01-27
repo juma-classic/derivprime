@@ -1,0 +1,493 @@
+/* Modern Market Analysis Tool - Clean Design */
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:
+        'Inter',
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.analysis-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Top Controls */
+.top-controls {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.control-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.control-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-item label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+    text-align: center;
+}
+
+.control-item select,
+.control-item input {
+    padding: 8px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: white;
+    color: #374151;
+    font-size: 0.875rem;
+    min-width: 200px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.control-item select:focus,
+.control-item input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Price Header */
+.price-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.price-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+    font-family: 'Inter', monospace;
+}
+
+.price-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+}
+
+.tick-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.tick-count {
+    background: #e2e8f0;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+    color: #475569;
+}
+
+.connection-status {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-connecting {
+    background: #fbbf24;
+    color: #92400e;
+}
+
+.status-connected {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-loading {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status-live {
+    background: #dcfce7;
+    color: #166534;
+    animation: pulse-live 2s infinite;
+}
+
+.status-error,
+.status-failed {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.status-disconnected {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+@keyframes pulse-live {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Digit Distribution */
+.digit-section {
+    margin-bottom: 40px;
+}
+
+.digit-grid {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.digit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.digit-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    background: #f1f5f9;
+    color: #475569;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.digit-circle.most-appearing {
+    background: #10b981;
+    color: white;
+    border-color: #10b981;
+}
+
+.digit-circle.second-most-appearing {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+.digit-circle.least-appearing {
+    background: #ef4444;
+    color: white;
+    border-color: #ef4444;
+}
+
+.digit-circle.second-least-appearing {
+    background: #f59e0b;
+    color: white;
+    border-color: #f59e0b;
+}
+
+.digit-percentage {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.current-indicator {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #ef4444;
+}
+
+.digit-container.current .current-indicator {
+    display: block;
+}
+
+/* Analysis Sections */
+.analysis-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.analysis-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.analysis-label {
+    font-weight: 600;
+    color: #374151;
+    min-width: 120px;
+    font-size: 0.875rem;
+}
+
+.analysis-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.progress-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.progress-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+    min-width: 50px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.even-fill {
+    background: #10b981;
+}
+
+.odd-fill {
+    background: #ef4444;
+}
+
+.under-fill {
+    background: #10b981;
+}
+
+.over-fill {
+    background: #ef4444;
+}
+
+.matches-fill {
+    background: #10b981;
+}
+
+.differs-fill {
+    background: #ef4444;
+}
+
+.progress-value {
+    font-weight: 600;
+    color: #1e293b;
+    min-width: 40px;
+    text-align: right;
+    font-size: 0.875rem;
+}
+
+.progress-percent {
+    font-size: 0.75rem;
+    color: #64748b;
+    min-width: 50px;
+}
+
+.equal-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+}
+
+.equal-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.equal-value {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 0.875rem;
+}
+
+.equal-percent {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.recent-indicators {
+    display: flex;
+    gap: 2px;
+    flex-wrap: wrap;
+    max-width: 200px;
+}
+
+.indicator-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.indicator-dot.even {
+    background: #10b981;
+}
+
+.indicator-dot.odd {
+    background: #ef4444;
+}
+
+.copy-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .analysis-container {
+        padding: 16px;
+    }
+
+    .top-controls {
+        padding: 16px;
+    }
+
+    .control-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .price-value {
+        font-size: 2rem;
+    }
+
+    .digit-grid {
+        gap: 8px;
+    }
+
+    .digit-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+
+    .analysis-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .analysis-content {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .control-item select,
+    .control-item input {
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .digit-grid {
+        gap: 6px;
+    }
+
+    .digit-circle {
+        width: 45px;
+        height: 45px;
+        font-size: 0.875rem;
+    }
+
+    .tick-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
