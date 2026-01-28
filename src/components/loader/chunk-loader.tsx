@@ -8,8 +8,8 @@ export default function ChunkLoader({ message }: { message: string }) {
                 {/* Animated Logo/Brand */}
                 <div className='brand-container'>
                     <div className='brand-text'>
-                        <span className='ceo'>CEO</span>
-                        <span className='paul'>PAUL</span>
+                        <span className='deriv'>Deriv</span>
+                        <span className='prime'>Prime</span>
                     </div>
                     <div className='brand-subtitle'>Trading Platform</div>
                 </div>

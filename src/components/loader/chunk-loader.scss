@@ -1,4 +1,4 @@
-// Modern CEO PAUL Loader
+// Modern Deriv Prime Loader
 .modern-loader {
     background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
     position: fixed;
@@ -34,14 +34,14 @@
             gap: 1rem;
             margin-bottom: 0.5rem;
 
-            .ceo {
+            .deriv {
                 font-size: 4rem;
                 font-weight: 900;
-                background: linear-gradient(135deg, #ffd700 0%, #ff6b35 50%, #ffd700 100%);
+                background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
                 background-clip: text;
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
-                text-shadow: 0 0 30px rgb(255 215 0 / 50%);
+                text-shadow: 0 0 30px rgb(59 130 246 / 50%);
                 animation: glow-pulse 2s ease-in-out infinite;
                 letter-spacing: 0.2em;
                 font-family:
@@ -51,14 +51,14 @@
                     sans-serif;
             }
 
-            .paul {
+            .prime {
                 font-size: 4rem;
                 font-weight: 900;
-                background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd700 100%);
+                background: linear-gradient(135deg, #3b82f6 0%, #1e40af 50%, #1e3a8a 100%);
                 background-clip: text;
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
-                text-shadow: 0 0 30px rgb(255 107 53 / 50%);
+                text-shadow: 0 0 30px rgb(30 64 175 / 50%);
                 animation: glow-pulse 2s ease-in-out infinite 0.5s;
                 letter-spacing: 0.2em;
                 font-family:
@@ -85,7 +85,7 @@
             position: absolute;
             width: 100px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
             top: 50%;
             animation: expand-line 2s ease-out 1s both;
         }
@@ -117,8 +117,8 @@
                 &:nth-child(1) {
                     width: 80px;
                     height: 80px;
-                    border-top-color: #ffd700;
-                    border-right-color: #ffd700;
+                    border-top-color: #3b82f6;
+                    border-right-color: #3b82f6;
                     animation-duration: 2s;
                 }
 
@@ -127,8 +127,8 @@
                     height: 60px;
                     top: 10px;
                     left: 10px;
-                    border-top-color: #ff6b35;
-                    border-left-color: #ff6b35;
+                    border-top-color: #1e40af;
+                    border-left-color: #1e40af;
                     animation-duration: 1.5s;
                     animation-direction: reverse;
                 }
@@ -138,8 +138,8 @@
                     height: 40px;
                     top: 20px;
                     left: 20px;
-                    border-top-color: #f7931e;
-                    border-bottom-color: #f7931e;
+                    border-top-color: #1e3a8a;
+                    border-bottom-color: #1e3a8a;
                     animation-duration: 1s;
                 }
             }
@@ -169,10 +169,10 @@
 
             .progress-fill {
                 height: 100%;
-                background: linear-gradient(90deg, #ffd700, #ff6b35, #f7931e);
+                background: linear-gradient(90deg, #1e3a8a, #3b82f6, #1e40af);
                 border-radius: 2px;
                 animation: progress-fill 3s ease-in-out infinite;
-                box-shadow: 0 0 10px rgb(255 215 0 / 50%);
+                box-shadow: 0 0 10px rgb(59 130 246 / 50%);
             }
         }
     }
@@ -191,7 +191,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: rgb(255 215 0 / 60%);
+            background: rgb(59 130 246 / 60%);
             border-radius: 50%;
             animation: float-up 8s linear infinite;
 
@@ -216,14 +216,14 @@
                 left: 15%;
                 animation-delay: 1s;
                 animation-duration: 7s;
-                background: rgb(255 107 53 / 60%);
+                background: rgb(30 64 175 / 60%);
             }
 
             &.particle-3 {
                 left: 25%;
                 animation-delay: 2s;
                 animation-duration: 8s;
-                background: rgb(247 147 30 / 60%);
+                background: rgb(30 58 138 / 60%);
             }
 
             &.particle-4 {
@@ -236,14 +236,14 @@
                 left: 45%;
                 animation-delay: 4s;
                 animation-duration: 6s;
-                background: rgb(255 107 53 / 60%);
+                background: rgb(30 64 175 / 60%);
             }
 
             &.particle-6 {
                 left: 55%;
                 animation-delay: 5s;
                 animation-duration: 7s;
-                background: rgb(247 147 30 / 60%);
+                background: rgb(30 58 138 / 60%);
             }
 
             &.particle-7 {
@@ -256,14 +256,14 @@
                 left: 75%;
                 animation-delay: 7s;
                 animation-duration: 9s;
-                background: rgb(255 107 53 / 60%);
+                background: rgb(30 64 175 / 60%);
             }
 
             &.particle-9 {
                 left: 85%;
                 animation-delay: 0.5s;
                 animation-duration: 6s;
-                background: rgb(247 147 30 / 60%);
+                background: rgb(30 58 138 / 60%);
             }
 
             &.particle-10 {
@@ -276,14 +276,14 @@
                 left: 10%;
                 animation-delay: 2.5s;
                 animation-duration: 8s;
-                background: rgb(255 107 53 / 60%);
+                background: rgb(30 64 175 / 60%);
             }
 
             &.particle-12 {
                 left: 20%;
                 animation-delay: 3.5s;
                 animation-duration: 9s;
-                background: rgb(247 147 30 / 60%);
+                background: rgb(30 58 138 / 60%);
             }
 
             &.particle-13 {
@@ -296,14 +296,14 @@
                 left: 40%;
                 animation-delay: 5.5s;
                 animation-duration: 7s;
-                background: rgb(255 107 53 / 60%);
+                background: rgb(30 64 175 / 60%);
             }
 
             &.particle-15 {
                 left: 50%;
                 animation-delay: 6.5s;
                 animation-duration: 8s;
-                background: rgb(247 147 30 / 60%);
+                background: rgb(30 58 138 / 60%);
             }
 
             &.particle-16 {
@@ -316,14 +316,14 @@
                 left: 70%;
                 animation-delay: 0.8s;
                 animation-duration: 6s;
-                background: rgb(255 107 53 / 60%);
+                background: rgb(30 64 175 / 60%);
             }
 
             &.particle-18 {
                 left: 80%;
                 animation-delay: 1.8s;
                 animation-duration: 7s;
-                background: rgb(247 147 30 / 60%);
+                background: rgb(30 58 138 / 60%);
             }
 
             &.particle-19 {
@@ -336,7 +336,7 @@
                 left: 12%;
                 animation-delay: 3.8s;
                 animation-duration: 9s;
-                background: rgb(255 107 53 / 60%);
+                background: rgb(30 64 175 / 60%);
             }
         }
     }
@@ -369,16 +369,16 @@
     0%,
     100% {
         text-shadow:
-            0 0 20px rgb(255 215 0 / 50%),
-            0 0 40px rgb(255 215 0 / 30%),
-            0 0 60px rgb(255 215 0 / 10%);
+            0 0 20px rgb(59 130 246 / 50%),
+            0 0 40px rgb(59 130 246 / 30%),
+            0 0 60px rgb(59 130 246 / 10%);
     }
 
     50% {
         text-shadow:
-            0 0 30px rgb(255 215 0 / 80%),
-            0 0 60px rgb(255 215 0 / 50%),
-            0 0 90px rgb(255 215 0 / 30%);
+            0 0 30px rgb(59 130 246 / 80%),
+            0 0 60px rgb(59 130 246 / 50%),
+            0 0 90px rgb(59 130 246 / 30%);
     }
 }
 
@@ -464,8 +464,8 @@
                 flex-direction: column;
                 gap: 0.5rem;
 
-                .ceo,
-                .paul {
+                .deriv,
+                .prime {
                     font-size: 3rem;
                 }
             }
@@ -503,8 +503,8 @@
     .modern-loader {
         .brand-container {
             .brand-text {
-                .ceo,
-                .paul {
+                .deriv,
+                .prime {
                     font-size: 2.5rem;
                 }
             }
@@ -551,8 +551,8 @@
 // Reduced motion support
 @media (prefers-reduced-motion: reduce) {
     .modern-loader {
-        .brand-text .ceo,
-        .brand-text .paul {
+        .brand-text .deriv,
+        .brand-text .prime {
             animation: none;
         }
 

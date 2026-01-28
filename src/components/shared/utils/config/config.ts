@@ -1,15 +1,14 @@
 import { LocalStorageConstants, LocalStorageUtils, URLUtils } from '@deriv-com/utils';
-import { isStaging } from '../url/helpers';
 
 export const APP_IDS = {
-    LOCALHOST: 117914,
-    TMP_STAGING: 117914,
-    STAGING: 117914,
-    STAGING_BE: 117914,
-    STAGING_ME: 117914,
-    PRODUCTION: 117914,
-    PRODUCTION_BE: 117914,
-    PRODUCTION_ME: 117914,
+    LOCALHOST: 122836,
+    TMP_STAGING: 122836,
+    STAGING: 122836,
+    STAGING_BE: 122836,
+    STAGING_ME: 122836,
+    PRODUCTION: 122836,
+    PRODUCTION_BE: 122836,
+    PRODUCTION_ME: 122836,
     LIVE: 80058,
 };
 
@@ -73,7 +72,7 @@ export const getAppId = () => {
 
     if (!app_id || app_id === '80058') {
         console.warn('⚠️ App ID is invalid, forcing correct App ID...');
-        app_id = '117914';
+        app_id = '122836';
         window.localStorage.setItem('config.app_id', app_id);
     }
 

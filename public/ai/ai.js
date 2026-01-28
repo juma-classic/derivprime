@@ -17,7 +17,7 @@ function startWebSocket() {
     updateConnectionStatus('connecting');
     console.log('Connecting to Deriv WebSocket...');
 
-    derivWs = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=117914');
+    derivWs = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=122836');
 
     derivWs.onopen = function () {
         console.log('WebSocket connected successfully');

@@ -7,9 +7,9 @@ export const AppLogo = () => {
     if (!isDesktop) return null;
 
     return (
-        <a className='app-header__logo' href='https://tickshark.top' target='_blank' rel='noopener noreferrer'>
-            <div className='ceo-paul-logo'>
-                <span className='ceo-paul-logo__text'>CEO PAUL</span>
+        <a className='app-header__logo' href='https://derivprime.vercel.app' target='_blank' rel='noopener noreferrer'>
+            <div className='deriv-prime-logo'>
+                <span className='deriv-prime-logo__text'>Deriv Prime</span>
             </div>
         </a>
     );
